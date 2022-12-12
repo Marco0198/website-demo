@@ -1,0 +1,119 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Our container for the cards */
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    width: 90%;
+    margin: 0.5rem auto;
+    padding: 0.5rem;
+
+    /* Change the border color if you want to see the full container for reference */
+    border: thin solid white;
+}
+
+/* If the screen is less than 600 px then just make main full width */
+@media screen and (max-width:600px) {
+    main {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .navbar {
+        padding: 0;
+    }
+
+    .navbar .navbar-nav .nav-link {
+        padding: 1em 0;
+    }
+
+    .navbar .navbar-nav .nav-item {
+        margin: 0 1em;
+    }
+}
+
+.navbar .navbar-nav .nav-item {
+    position: relative;
+}
+
+.navbar .navbar-nav .nav-item::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    content: "";
+    background-color: black;
+    width: 0%;
+    height: 4px;
+    transition: all 0.5s;
+}
+
+.navbar .navbar-nav .nav-item:hover::after {
+    width: 100%;
+}
+
+/* common card stylings */
+/* What is in common on both cards - which is basically everything */
+.book-card,
+.card-reverse {
+    width: 100%;
+    /* max-height: fit-content; */
+    overflow: hidden;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    /* Change the brder color if you want to see the full card for reference */
+    border: thin solid white;
+
+    /* The shadow gives a nice mordrn touch to the cardsbut this is hghly decorative */
+    /* box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); */
+}
+
+/* What is unique for the reversed card - only the row direction */
+.card-reverse {
+    flex-direction: row-reverse;
+}
+
+/* making the image do what we want */
+/* The image min-width sets the breakpoint for the flex-wrap - so when should it stack the elements instead of having them lined up in a row */
+/* The min-height just ensures that the picture always fills out the card*/
+img {
+    min-width: 300px;
+    height: 300px;
+    /* object-fit: cover; */
+
+    /* Flex property tells how the image should scale in reference to the other elements. It should grow and shrink in regard to original proportions*/
+    flex: 1 1;
+}
+
+/* Styling for the text box */
+section {
+    width: fit-content;
+    margin-left: 3rem;
+
+    /* Flex property in this case scales the section to be preferably 3 times as big as the other elements when scaling up but */
+    flex: 3 1;
+}
+
+/* Some extra styling on the text just because I can */
+h3 {
+    font-size: clamp(1em, 4cqw, 3em);
+}
+
+ul {
+    padding: 1rem 0.5rem;
+}
+
+button {
+    padding: 0.2rem;
+}
